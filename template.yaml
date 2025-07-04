@@ -61,7 +61,6 @@ spec:
       input:
         url: ./skeleton
         values: &parameters
-          template_version: "1.1"
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
