@@ -60,7 +60,7 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        values:
+        values: &parameters
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
@@ -68,6 +68,18 @@ spec:
           destination: # use format from the RepoUrlPicker
             owner: spotify-portal-public-demo
             repo: ${{ parameters.component_id }}
+
+    - id: convert_params
+      name: Convert Parameters
+      action: roadiehq:utils:serialize:json
+      input: *parameters
+
+    - id: write_params
+      name: Write Params
+      action: roadiehq:utils:fs:write
+      input:
+        path: .template_params.json
+        content: ${{ steps.convert_params.output.serialized }}
 
     - id: publish
       name: Publish
