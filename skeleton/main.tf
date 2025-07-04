@@ -23,5 +23,5 @@ resource "google_container_cluster" "${{ values.component_id }}" {
   location         = "${{ values.region }}"
   enable_autopilot = true
 
-  deletion_protection = true
+  deletion_protection = false
 }
