@@ -89,7 +89,7 @@ spec:
           spec:
             type: kubernetes
             lifecycle: experimental
-            owner: ${{ parameters.owner | dump }}
+            owner: ${{ parameters.owner }}
 
     - id: convert_params
       name: Convert Parameters
