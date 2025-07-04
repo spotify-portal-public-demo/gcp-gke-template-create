@@ -61,6 +61,7 @@ spec:
       input:
         url: ./skeleton
         values: &parameters
+          template_version: "1.0"
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
@@ -79,7 +80,7 @@ spec:
       name: Write Params
       action: roadiehq:utils:fs:write
       input:
-        path: .template_params.json
+        path: .template.json
         content: ${{ steps.convert_params.output.serialized }}
 
     - id: publish
