@@ -72,7 +72,8 @@ spec:
     - id: convert_params
       name: Convert Parameters
       action: roadiehq:utils:serialize:json
-      input: *parameters
+      input:
+        data: *parameters
 
     - id: write_params
       name: Write Params
