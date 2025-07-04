@@ -76,13 +76,20 @@ spec:
       input:
         entity:
           apiVersion: backstage.io/v1alpha1
-          kind: Component
+          kind: Resource
           metadata:
             name: ${{ parameters.component_id }}
+            description: ${{ parameters.description | dump }}
+            tags:
+              - gcp
+              - gke
+            annotations:
+              backstage.io/techdocs-ref: dir:.
+              github.com/project-slug: spotify-portal-public-demo/${{ parameters.component_id }}
           spec:
-            type: service
-            lifecycle: production
-            owner: default/owner
+            type: kubernetes
+            lifecycle: experimental
+            owner: ${{ parameters.owner | dump }}
 
     - id: convert_params
       name: Convert Parameters
