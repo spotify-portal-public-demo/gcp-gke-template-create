@@ -72,7 +72,7 @@ spec:
 
     - action: catalog:write
       id: create-catalog-info-file
-      name: Create catalog file
+      name: Create Catalog File
       input:
         entity:
           apiVersion: backstage.io/v1alpha1
